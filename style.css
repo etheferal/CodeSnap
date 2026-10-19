@@ -1,0 +1,186 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0d1117;
+  color: #e6edf3;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sol Kontrol Paneli */
+.controls {
+  width: 360px;
+  background-color: #161b22;
+  border-right: 1px solid #30363d;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.controls h2 {
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: #8b949e;
+  font-size: 0.875rem;
+  margin-top: -14px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c9d1d9;
+}
+
+input[type="text"],
+select,
+textarea {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  color: #e6edf3;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+textarea {
+  font-family: 'JetBrains Mono', monospace;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #58a6ff;
+}
+
+input[type="range"] {
+  accent-color: #58a6ff;
+  cursor: pointer;
+}
+
+.primary-btn {
+  margin-top: auto;
+  background-color: #238636;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.primary-btn:hover {
+  background-color: #2ea043;
+}
+
+/* Sağ Önizleme Alanı */
+.preview-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: auto;
+}
+
+/* İndirilecek Kart Alanı */
+.card-canvas {
+  padding: 48px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  transition: padding 0.2s ease, background 0.3s ease;
+  display: inline-block;
+  min-width: 480px;
+  max-width: 780px;
+}
+
+.code-window {
+  background-color: #1e1e2e;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.window-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background-color: #181825;
+}
+
+.mac-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.red { background-color: #ff5f56; }
+.dot.yellow { background-color: #ffbd2e; }
+.dot.green { background-color: #27c93f; }
+
+.window-title {
+  color: #a6adc8;
+  font-size: 0.8rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.spacer {
+  width: 52px; /* Başlığı tam ortalamak için mac-dots genişliği kadar boşluk */
+}
+
+.code-content {
+  padding: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #cdd6f4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 850px) {
+  .app-container {
+    flex-direction: column;
+  }
+  .controls {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #30363d;
+  }
+  .card-canvas {
+    min-width: 100%;
+  }
+}

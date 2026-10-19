@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeSnap | Kod & Metin Kartı Oluşturucu</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Kod fontu için Google Fonts (JetBrains Mono & Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Görsel çıktısı almak için html2canvas kütüphanesi -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sol Panel: Kontroller -->
+    <aside class="controls">
+      <h2>⚡ CodeSnap</h2>
+      <p class="subtitle">Kodlarını şık görsellere dönüştür</p>
+
+      <div class="control-group">
+        <label for="window-title">Dosya / Pencere Adı</label>
+        <input type="text" id="window-title" value="app.js" placeholder="Örn: index.js">
+      </div>
+
+      <div class="control-group">
+        <label for="bg-theme">Arka Plan Teması</label>
+        <select id="bg-theme">
+          <option value="linear-gradient(135deg, #667eea 0%, #764ba2 100%)">Gece Moru (Varsayılan)</option>
+          <option value="linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)">Şeftali Gün Batımı</option>
+          <option value="linear-gradient(135deg, #11998e 0%, #38ef7d 100%)">Neon Yeşil</option>
+          <option value="linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)">Derin Okyanus</option>
+          <option value="linear-gradient(135deg, #f6d365 0%, #fda085 100%)">Sıcak Güneş</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="padding-range">Dış Boşluk (Padding): <span id="padding-val">48px</span></label>
+        <input type="range" id="padding-range" min="16" max="96" step="8" value="48">
+      </div>
+
+      <div class="control-group">
+        <label for="code-input">Kod veya Metin</label>
+        <textarea id="code-input" rows="8" spellcheck="false">const developer = {
+  username: "ETHEFERAL",
+  role: "Programmer",
+  coffee: true,
+  shipCode() {
+    return "🚀 Yayında!";
+  }
+};</textarea>
+      </div>
+
+      <button id="download-btn" class="primary-btn">📸 PNG Olarak İndir</button>
+    </aside>
+
+    <!-- Sağ Panel: Canlı Önizleme -->
+    <main class="preview-area">
+      <!-- html2canvas sadece bu div'in fotoğrafını çekecek -->
+      <div id="capture-area" class="card-canvas">
+        <div class="code-window">
+          <div class="window-header">
+            <div class="mac-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span id="preview-title" class="window-title">app.js</span>
+            <div class="spacer"></div>
+          </div>
+          <pre class="code-content"><code id="preview-code"></code></pre>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
